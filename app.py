@@ -54,8 +54,7 @@ html, body, [class*="css"], [data-testid="stAppViewContainer"] {
 [data-testid="stSidebar"] [data-testid="stCaptionContainer"] { color: var(--muted); }
 [data-testid="stSidebar"] hr, hr { border-color: var(--border) !important; }
 #MainMenu, footer, [data-testid="stDecoration"] { visibility: hidden; }
-.brand { display:flex; align-items:center; gap:10px; padding:2px 2px 4px; }
-.brand-mark { display:grid; place-items:center; width:30px; height:30px; border:1px solid #345b8d; border-radius:6px; color:#79b8ff; font:600 12px var(--mono); }
+.brand { display:flex; align-items:center; padding:2px 2px 4px; }
 .brand-name { color:var(--text); font-size:13px; font-weight:700; letter-spacing:.025em; }
 .brand-caption { color:var(--muted); font:10px var(--mono); letter-spacing:.06em; margin-top:2px; }
 .side-label { color:var(--muted); font:500 10px var(--mono); letter-spacing:.09em; text-transform:uppercase; margin:4px 0 6px; }
@@ -63,8 +62,7 @@ html, body, [class*="css"], [data-testid="stAppViewContainer"] {
 .repo-title { color:var(--text); font-size:22px; line-height:1.2; font-weight:600; letter-spacing:-.025em; margin:0; }
 .repo-path { color:var(--muted); font:12px var(--mono); overflow-wrap:anywhere; margin-top:5px; }
 .scan-meta { color:var(--muted); font:11px var(--mono); margin-top:11px; }
-.status { display:inline-flex; align-items:center; gap:6px; color:#7ee787; font:500 11px var(--mono); border:1px solid #244a2b; background:#122019; border-radius:4px; padding:4px 7px; white-space:nowrap; }
-.status-dot { width:6px; height:6px; border-radius:50%; background:var(--green); }
+.status { color:#7ee787; font:500 11px var(--mono); white-space:nowrap; }
 .section-heading { color:var(--text); font-size:14px; font-weight:600; margin:2px 0 3px; }
 .section-subtitle { color:var(--muted); font-size:11px; margin:0 0 10px; }
 .mono { font-family:var(--mono); }
@@ -162,7 +160,7 @@ def table(rows, *, height=410, column_config=None):
 
 with st.sidebar:
     st.markdown(
-        "<div class='brand'><span class='brand-mark'>CX</span><div><div class='brand-name'>CODEBASE X-RAY</div><div class='brand-caption'>REPOSITORY ANALYSIS</div></div></div>",
+        "<div class='brand'><div><div class='brand-name'>CODEBASE X-RAY</div><div class='brand-caption'>REPOSITORY ANALYSIS</div></div></div>",
         unsafe_allow_html=True,
     )
     st.divider()
@@ -269,7 +267,7 @@ with st.container():
             unsafe_allow_html=True,
         )
     with action:
-        st.markdown("<div class='status'><span class='status-dot'></span>SCAN COMPLETE</div>", unsafe_allow_html=True)
+        st.markdown("<div class='status'>SCAN COMPLETE</div>", unsafe_allow_html=True)
         if st.button("Rescan", width="stretch", key="header_rescan"):
             st.session_state["rescan_requested"] = True
             cached_scan.clear()
